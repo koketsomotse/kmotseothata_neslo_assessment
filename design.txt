@@ -1,0 +1,37 @@
+Design Document for Neobank Transfers Project
+Introduction
+This project implements a basic simulation of neobank transfers, focusing on processing transactions, handling currency conversions, and updating exchange rates through both an API and a CSV file. The purpose is to demonstrate software engineering practices, including clean code, modular design, and unit testing.
+
+Domain Relation/Design Structure
+The project follows a modular structure divided into several components:
+
+Models: Represents data structures, such as transactions and exchange rates.
+Services: Contains business logic, including transaction processing and exchange rate updates.
+Utils: Includes utility functions, such as CSV parsing and API calls for exchange rates.
+Tests: Ensures the application's reliability through unit and integration tests.
+This structure promotes separation of concerns, making the codebase easier to navigate, maintain, and test.
+
+Parsing Method
+For CSV parsing, the project utilizes Python's built-in csv module. This choice was made due to its simplicity, efficiency, and direct support from Python's standard library. It allows for straightforward reading from and writing to CSV files, which is essential for updating exchange rates manually.
+
+Access to Currency Rates
+Exchange rates can be updated in two ways:
+
+API: The project attempts to fetch the latest exchange rates from a third-party API (mocked in this instance). This approach simulates real-world application behavior, fetching live data when available.
+CSV File: As a fallback or alternative method, exchange rates can be updated manually via a CSV file. This method ensures that the application can still function and update its rates even without live API access.
+Mock Data and Testing Strategy
+The project uses mock data for testing purposes, especially for API responses and CSV file parsing. This approach allows for testing the application's logic without relying on external dependencies. The testing strategy covers unit tests for individual components (models, services, utils) and integration tests to ensure the components work together as expected.
+
+Challenges and Solutions
+One challenge was handling the variability of exchange rates and ensuring the application could update these rates reliably. The solution was to implement dual methods (API and CSV) for updating rates, providing flexibility and reliability in managing exchange rates.
+
+Another challenge was designing the application to be easily testable, especially for components interacting with external services. The use of mock data and separating business logic into services facilitated this, allowing for comprehensive testing without external dependencies.
+
+Future Improvements
+Future improvements could include:
+
+Implementing a more robust error handling system to manage and respond to exceptions more gracefully.
+Adding more sophisticated logging for tracking transactions and system behavior.
+Enhancing the currency conversion feature to support more currencies and complex conversion scenarios.
+Conclusion
+This project demonstrates key software engineering principles through the development of a neobank transfers simulation. By focusing on clean code, modular design, and thorough testing, the application provides a solid foundation for further development and learning.
